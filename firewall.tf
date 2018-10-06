@@ -1,4 +1,4 @@
-resource "aws_security_group" "instance" {
+resource "aws_security_group" "project-instance" {
 	name = "terraform-project-instance"
 	# ingress rules
 	ingress = {
