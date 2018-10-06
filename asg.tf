@@ -8,6 +8,6 @@ resource "aws_launch_configuration" "project" {
 				EOF
 
 	lifecycle {
-		create_befor_destroy = true
+		create_before_destroy = true
 	}
 }
