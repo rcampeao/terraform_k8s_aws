@@ -1,10 +1,14 @@
 resource "aws_security_group" "project-instance" {
-	name = "terraform-project-instance"
+	name	= "terraform-project-instance"
 	# ingress rules
-	ingress = {
-		from_port = 8080
-		to_port = 8080
-		protocol = "tcp"
-		cidr_blocks = ["0.0.0.0/0"]
+	ingress	= {
+		from_port	= "${var.server_port}" 
+		to_port		= "${var.server_port}"
+		protocol	= "tcp"
+		cidr_blocks	= ["${var.internet}"]
+	}
+
+	lifecycle {
+		create_before_destroy = true
 	}
 }
