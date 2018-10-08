@@ -9,4 +9,12 @@ resource "aws_elb" "myproject" {
 		instance_port		= "${var.server_port}"
 		instance_protocol	= "${var.elb_listener["instance_protocol"]}"
 	}
+	
+	health_check {
+		healthy_threshold	= "${var.health_check["healthy_threshold"]}"
+		unhealthy_threshold	= "${var.health_check["unhealthy_threshold"]}"
+		timeout			= "${var.health_check["timeout"]}"
+		interval		= "${var.health_check["interval"]}"
+		target			= "${var.health_check["target"]}"
+	}
 }
