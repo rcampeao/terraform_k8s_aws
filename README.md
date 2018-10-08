@@ -1,1 +1,1 @@
-# K8S on AWS complete with Terraform
+# Complete K8S on AWS with Terraform
