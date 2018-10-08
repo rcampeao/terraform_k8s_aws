@@ -1,4 +1,4 @@
-resource "aws_launch_configuration" "project" {
+resource "aws_launch_configuration" "myproject" {
 	image_id		= "${var.image_id}"
 	instance_type		= "${var.instance_type}"
 	security_groups		= ["${aws_security_group.instance.id}"]
@@ -12,15 +12,15 @@ resource "aws_launch_configuration" "project" {
 	}
 }
 
-resource "aws_autoscaling_group" "project" {
-	launch_configuration	= "${aws_launch_configuration.project.id}"
+resource "aws_autoscaling_group" "myproject" {
+	launch_configuration	= "${aws_launch_configuration.myproject.id}"
 
 	min_size		= "${var.asg_min_size}"
 	max_size		= "${var.asg_max_size}"
 
 	tag {
 		key		= "Name"
-		valeu		= "terraform-asg-project"
+		valeu		= "terraform-asg-myproject"
 		propagate_at_launch	= true
 	}
 }

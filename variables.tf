@@ -1,5 +1,7 @@
-#Variables datas to access provider
-#PROVIDER.TF
+#################
+## PROVIDER.TF ##
+#################
+#Data to access provider
 variable "provider_fields" {
 	description	= ""
 	type		= "map"
@@ -10,7 +12,10 @@ variable "provider_fields" {
 	}
 }
 
-# ASG.TF
+############
+## ASG.TF ##
+############
+#Data to build autoscaling group
 variable "image_id" {
 	description	= ""
 	type		= "string"
@@ -33,7 +38,10 @@ variable "asg_max_size" {
 	default		= 10
 }
 
-# FIREWALL.TF
+#################
+## FIREWALL.TF ##
+#################
+#Data to build security group
 variable "server_port" {
 	description	= ""
 	default		= 8080
@@ -43,3 +51,17 @@ variable "internet" {
 	description	= ""
 	default		= "0.0.0.0/0"
 }
+
+############
+## DNS.TF ##
+############
+#Data to register FQDN (Route53)
+variable "mydomain"{
+	description	= ""
+	type		= "map"
+	default = {
+		domain	= ""
+		name	= ""
+	}
+}
+

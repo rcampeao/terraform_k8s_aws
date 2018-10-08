@@ -1,5 +1,5 @@
-resource "aws_security_group" "project-instance" {
-	name	= "terraform-project-instance"
+resource "aws_security_group" "myproject" {
+	name	= "terraform-myproject"
 	# ingress rules
 	ingress	= {
 		from_port	= "${var.server_port}" 
