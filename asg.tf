@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "myproject" {
 	max_size			= "${var.asg_max_size}"
 	tag {
 		key			= "Name"
-		valeu			= "terraform-asg-myproject"
+		value			= "terraform-asg-myproject"
 		propagate_at_launch	= true
 	}
 }

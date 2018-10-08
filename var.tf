@@ -8,7 +8,7 @@ variable "provider_fields" {
 	default = {
 	  access_key			= ""
 	  secret_key			= ""
-	  region			= ["us-east-1"]
+	  region			= "us-east-1"
 	}
 }
 
@@ -86,6 +86,5 @@ variable "health_check" {
 		unhealthy_threshold	= 2
 		timeout			= 3
 		interval		= 30
-		target			= "HTTP:${var.server_port}/"
 	}
 }

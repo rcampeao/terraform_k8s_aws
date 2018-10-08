@@ -15,6 +15,6 @@ resource "aws_elb" "myproject" {
 		unhealthy_threshold	= "${var.health_check["unhealthy_threshold"]}"
 		timeout			= "${var.health_check["timeout"]}"
 		interval		= "${var.health_check["interval"]}"
-		target			= "${var.health_check["target"]}"
+		target			= "HTTP:${var.server_port}/"
 	}
 }
