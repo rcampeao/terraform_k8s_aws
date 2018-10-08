@@ -14,6 +14,7 @@ resource "aws_launch_configuration" "myproject" {
 
 resource "aws_autoscaling_group" "myproject" {
 	launch_configuration	= "${aws_launch_configuration.myproject.id}"
+	availability_zones	= ["${data.aws_availability_zones.all.names}"]
 
 	min_size		= "${var.asg_min_size}"
 	max_size		= "${var.asg_max_size}"

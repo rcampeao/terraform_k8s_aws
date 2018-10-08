@@ -1,6 +1,5 @@
-resource "aws_security_group" "myproject" {
-	name	= "terraform-myproject"
-	# ingress rules
+resource "aws_security_group" "instance" {
+	name			= "terraform-myproject-instance"
 	ingress	= {
 		from_port	= "${var.server_port}" 
 		to_port		= "${var.server_port}"
@@ -10,5 +9,15 @@ resource "aws_security_group" "myproject" {
 
 	lifecycle {
 		create_before_destroy = true
+	}
+}
+
+resource "aws_security_group" "elb" {
+	name			= "terraform-myproject-elb"
+	ingress = {
+		from_port	= "${var.elb_listener["ssl_port"]}"
+		to_port		= "${var.elb_listener["ssl_port"]}"
+		protocol	= "${var.elb_listener["ssl_protocol"]}"
+		cidr_blocks	= "${var.internet}"
 	}
 }
