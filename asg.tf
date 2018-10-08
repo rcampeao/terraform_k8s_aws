@@ -15,6 +15,8 @@ resource "aws_launch_configuration" "myproject" {
 resource "aws_autoscaling_group" "myproject" {
 	launch_configuration		= "${aws_launch_configuration.myproject.id}"
 	availability_zones		= ["${data.aws_availability_zones.all.names}"]
+	load_balancers			= ["${aws_elb.myproject.name}"]
+	health_check_type		= "ELB"
 	min_size			= "${var.asg_min_size}"
 	max_size			= "${var.asg_max_size}"
 	tag {
